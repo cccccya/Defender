@@ -8,7 +8,7 @@ wchar_t FilePath[1000];
 int cnt=0;
 int main(int argc,char* argv[])
 {
-	//    std::cout << "Hello World!\n";
+	//通过外部传输传入参数FilePath
 	if (argc > 1) {
 		for (int i = 0; i < strlen(argv[1]); ++i) {
 			if (argv[1][i] == '/') FilePath[cnt++] = '\\', FilePath[cnt++] = '\\';
@@ -23,7 +23,7 @@ int main(int argc,char* argv[])
 	WCHAR DirPath[MAX_PATH + 1];
 	//wcscpy_s(DirPath, MAX_PATH, L"G:\\Defender\\Dll\\Debug");//DLL的文件夹G:\Defender\Dll\Debug
 	//char DLLPath[MAX_PATH + 1] = "G:\\Defender\\Dll\\Debug\\Dll.dll";//DLL的地址
-	wcscpy_s(DirPath, MAX_PATH, L"../Dll/Debug");//DLL的文件夹G:\Defender\Dll\Debug
+	wcscpy_s(DirPath, MAX_PATH, L"../Dll/Debug");//DLL的文件夹\Defender\Dll\Debug	syringe.cpp所在的文件夹syringe与DLL文件夹同级，故往取前两级文件夹
 	char DLLPath[MAX_PATH + 1] = "../Dll/Debug/Dll.dll";//DLL的地址
 	WCHAR EXE[MAX_PATH + 1] = { 0 };
 	//wcscpy_s(EXE, MAX_PATH, L"G:\\Defender\\example\\MFCtest.exe");
